@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://bc3bh4xkwj1gv"]
+
+[ext_resource type="Texture2D" uid="uid://n8n8yp30l5cx" path="res://Assets/sprites/SubSheet.png" id="1_j4hlo"]
+[ext_resource type="PackedScene" uid="uid://bxscfo2x0d3vj" path="res://Scenes/Player.tscn" id="2_bf15g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d2mj"]
+atlas = ExtResource("1_j4hlo")
+region = Rect2(3072, 0, 3072, 3072)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_drs82"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d2mj")
+}],
+"loop": true,
+"name": &"Interior",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5mkv"]
+size = Vector2(50.3844, 1.31303)
+
+[node name="TestScene" type="Node2D"]
+position = Vector2(-6, 7)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(420, 238)
+scale = Vector2(0.105, 0.105)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D"]
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_drs82")
+animation = &"Interior"
+
+[node name="Camera2D" type="Camera2D" parent="StaticBody2D/AnimatedSprite2D"]
+position = Vector2(-19.0483, 266.667)
+scale = Vector2(9.52381, 9.52381)
+zoom = Vector2(1.81, 1.81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-257.143, 502.217)
+scale = Vector2(32.89, 32.89)
+shape = SubResource("RectangleShape2D_a5mkv")
+
+[node name="Player" parent="." instance=ExtResource("2_bf15g")]
+position = Vector2(364, 285)
