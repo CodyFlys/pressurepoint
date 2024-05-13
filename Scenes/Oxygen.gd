@@ -14,6 +14,7 @@ var hasOxygen = true
 var timeUntilDead = 100;
 var timeWithoutOxygen = 0.00;
 var battery = 2
+var called = false # Works as a switch for the oxygen 50% check (quick fix)
 
 func _ready():
 	t.tween_property(water, "position", target_postion, machineRunTime) 
@@ -39,8 +40,13 @@ func _process(delta):
 		oxgen_sprite.play("On")
 		
 	if oxygenLeft <= float(float(machineRunTime) / float(2)):
-		#print('50% power! switching sprite')
-		oxgen_sprite.play("On_50")
+		if called == false: # Checks if hasnt be called, runs, then sets called to true
+			print('50% power! switching sprite')
+			oxgen_sprite.play("On_50")
+			called = true
+		elif called == true: # Passes fuction if it has been called before
+			pass
+
 		
 	if not hasOxygen:
 		if(timeWithoutOxygen <= 0.006):
