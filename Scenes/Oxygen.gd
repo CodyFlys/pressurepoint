@@ -34,12 +34,12 @@ func _process(delta):
 		hasOxygen = false
 		timeWithoutOxygen += 0.001 * delta
 		
-	print('oxygenLeft', oxygenLeft)
-	if oxygenLeft > machineRunTime / 2:
+	#print('oxygenLeft', oxygenLeft)
+	if oxygenLeft > float(float(machineRunTime) / float(2)):
 		oxgen_sprite.play("On")
 		
-	if oxygenLeft <= machineRunTime / 2:
-		print('50% power! switching sprite')
+	if oxygenLeft <= float(float(machineRunTime) / float(2)):
+		#print('50% power! switching sprite')
 		oxgen_sprite.play("On_50")
 		
 	if not hasOxygen:
