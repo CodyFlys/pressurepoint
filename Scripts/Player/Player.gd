@@ -112,7 +112,9 @@ func handleInteraction():
 		print("No Action Too Far")
 	
 	elif module == "oxygen":
-		print("Oxygen")
+		var o2 = $"../Oxygen"
+		o2.reset()
+		print("Oxygen Reset")
 		
 	elif module == "pressure":
 		print("pressure")

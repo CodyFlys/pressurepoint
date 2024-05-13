@@ -52,3 +52,4 @@ func _process(delta):
 		if(timeWithoutOxygen <= 0.006):
 			player.modulate.b += timeWithoutOxygen
 			oxgen_sprite.play("Off")
+
