@@ -41,7 +41,7 @@ func _process(delta):
 		
 	if oxygenLeft <= float(float(machineRunTime) / float(2)):
 		if called == false: # Checks if hasnt be called, runs, then sets called to true
-			print('50% power! switching sprite')
+			#print('50% power! switching sprite')
 			oxgen_sprite.play("On_50")
 			called = true
 		elif called == true: # Passes fuction if it has been called before
