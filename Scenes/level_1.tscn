@@ -1,524 +1,123 @@
-[gd_scene load_steps=57 format=3 uid="uid://b84pgl2m4ufpx"]
+[gd_scene load_steps=14 format=3 uid="uid://b84pgl2m4ufpx"]
 
 [ext_resource type="PackedScene" uid="uid://bxscfo2x0d3vj" path="res://Scenes/Player.tscn" id="1_2xctj"]
-[ext_resource type="Script" path="res://Scenes/Oxygen.gd" id="1_hbh4w"]
-[ext_resource type="Texture2D" uid="uid://wloscmkaj68u" path="res://Assets/sprites/OxygenReg/water_sprite.png" id="2_6pudd"]
-[ext_resource type="Texture2D" uid="uid://da6q4ed3xrhd5" path="res://Assets/sprites/OxygenReg/oxygen_module_on.png" id="2_r02ct"]
-[ext_resource type="Texture2D" uid="uid://w67uy3w245tk" path="res://Assets/sprites/OxygenReg/oxygen_module_50.png" id="4_u4ck2"]
-[ext_resource type="Texture2D" uid="uid://m6ot3fsarvwd" path="res://Assets/sprites/OxygenReg/background.png" id="5_t3jv3"]
-[ext_resource type="Texture2D" uid="uid://cvxobvlqe1go7" path="res://Assets/sprites/PressureRegSheet.png" id="6_fcvrj"]
-[ext_resource type="Texture2D" uid="uid://btgmbtd8q655f" path="res://Assets/sprites/ThermoSheet.png" id="7_4wdq7"]
-[ext_resource type="Texture2D" uid="uid://dcs5bst8fv0s" path="res://Assets/sprites/Table.png" id="7_bennc"]
-[ext_resource type="Texture2D" uid="uid://e51kjk7kqw5j" path="res://Assets/sprites/powerBoxSHeet.png" id="7_oaxuu"]
-[ext_resource type="Texture2D" uid="uid://ci0shvlwvmowc" path="res://Assets/sprites/ComputerSheet.png" id="8_xyv8t"]
+[ext_resource type="Texture2D" uid="uid://n8n8yp30l5cx" path="res://Assets/sprites/SubSheet.png" id="1_fsj1l"]
+[ext_resource type="Texture2D" uid="uid://35kdj8csagu6" path="res://Assets/sprites/windowSheet.png" id="2_ua3o6"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_fxg8u"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d2mj"]
+atlas = ExtResource("1_fsj1l")
+region = Rect2(3072, 0, 3072, 3072)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lt0q2"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0yyg6"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2ynds"]
-atlas = ExtResource("2_r02ct")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xn4vc"]
-atlas = ExtResource("2_r02ct")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qxj2u"]
-atlas = ExtResource("2_r02ct")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1uh2h"]
-atlas = ExtResource("2_r02ct")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x3xx7"]
-atlas = ExtResource("2_r02ct")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4xlth"]
-atlas = ExtResource("2_r02ct")
-region = Rect2(64, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0kg5x"]
-atlas = ExtResource("2_r02ct")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dq3ac"]
-atlas = ExtResource("2_r02ct")
-region = Rect2(32, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_omwl1"]
-atlas = ExtResource("2_r02ct")
-region = Rect2(64, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y65ro"]
-atlas = ExtResource("2_r02ct")
-region = Rect2(0, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ok8qn"]
-atlas = ExtResource("4_u4ck2")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5dmnr"]
-atlas = ExtResource("4_u4ck2")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ypnut"]
-atlas = ExtResource("4_u4ck2")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w6aky"]
-atlas = ExtResource("4_u4ck2")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x7w5s"]
-atlas = ExtResource("4_u4ck2")
-region = Rect2(64, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d8db8"]
-atlas = ExtResource("4_u4ck2")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4e5e5"]
-atlas = ExtResource("4_u4ck2")
-region = Rect2(32, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_raec0"]
-atlas = ExtResource("4_u4ck2")
-region = Rect2(64, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3tkvp"]
-atlas = ExtResource("4_u4ck2")
-region = Rect2(0, 96, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_racgh"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_drs82"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2ynds")
+"texture": SubResource("AtlasTexture_8d2mj")
 }],
 "loop": true,
-"name": &"Off",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xn4vc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qxj2u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1uh2h")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x3xx7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4xlth")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0kg5x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dq3ac")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_omwl1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y65ro")
-}],
-"loop": true,
-"name": &"On",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ok8qn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5dmnr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ypnut")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w6aky")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x7w5s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d8db8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4e5e5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_raec0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3tkvp")
-}],
-"loop": true,
-"name": &"On_50",
+"name": &"Interior",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dkee8"]
-size = Vector2(31, 20)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6n5pv"]
+atlas = ExtResource("2_ua3o6")
+region = Rect2(0, 0, 160, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cx223"]
-atlas = ExtResource("6_fcvrj")
-region = Rect2(0, 0, 640, 320)
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdoy0"]
+atlas = ExtResource("2_ua3o6")
+region = Rect2(160, 0, 160, 160)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_7e6bb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqxmq"]
+atlas = ExtResource("2_ua3o6")
+region = Rect2(0, 160, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1jii"]
+atlas = ExtResource("2_ua3o6")
+region = Rect2(160, 160, 160, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xaqgq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cx223")
+"texture": SubResource("AtlasTexture_6n5pv")
 }],
 "loop": true,
-"name": &"4_4",
+"name": &"Normal",
 "speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pthi2"]
-size = Vector2(26, 31)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hk0o4"]
-atlas = ExtResource("8_xyv8t")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7jfrr"]
-atlas = ExtResource("8_xyv8t")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p0f3e"]
-atlas = ExtResource("8_xyv8t")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q0lnt"]
-atlas = ExtResource("8_xyv8t")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f2uiv"]
-atlas = ExtResource("8_xyv8t")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_38fkm"]
-atlas = ExtResource("8_xyv8t")
-region = Rect2(64, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oqhlt"]
-atlas = ExtResource("8_xyv8t")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_7fv1c"]
-animations = [{
+}, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hk0o4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7jfrr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p0f3e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q0lnt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f2uiv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_38fkm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oqhlt")
+"texture": SubResource("AtlasTexture_hdoy0")
 }],
 "loop": true,
-"name": &"default",
+"name": &"crack_1",
 "speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_541co"]
-size = Vector2(20, 31)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dxrpc"]
-atlas = ExtResource("7_4wdq7")
-region = Rect2(0, 0, 320, 320)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fq8bu"]
-atlas = ExtResource("7_4wdq7")
-region = Rect2(320, 0, 320, 320)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8q2xc"]
-atlas = ExtResource("7_4wdq7")
-region = Rect2(0, 320, 320, 320)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2b4j6"]
-atlas = ExtResource("7_4wdq7")
-region = Rect2(320, 320, 320, 320)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_klrb8"]
-atlas = ExtResource("7_4wdq7")
-region = Rect2(0, 640, 320, 320)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_8iam6"]
-animations = [{
+}, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dxrpc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fq8bu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8q2xc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2b4j6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_klrb8")
+"texture": SubResource("AtlasTexture_dqxmq")
 }],
 "loop": true,
-"name": &"On",
+"name": &"crack_2",
 "speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vp3rk"]
-size = Vector2(20, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w6qit"]
-atlas = ExtResource("7_oaxuu")
-region = Rect2(0, 0, 600, 400)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_scdg1"]
-animations = [{
+}, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w6qit")
+"texture": SubResource("AtlasTexture_m1jii")
 }],
 "loop": true,
-"name": &"Stable",
+"name": &"crack_3",
 "speed": 5.0
 }]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5mkv"]
+size = Vector2(50.3844, 1.31303)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dno8r"]
+size = Vector2(20, 2.24889)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nex1b"]
+size = Vector2(59.4743, 3.8157)
+
+[node name="TestScene" type="Node2D"]
+position = Vector2(-6, 7)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-1, 10)
-scale = Vector2(16.02, 1)
+position = Vector2(420, 238)
+scale = Vector2(0.105, 0.105)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
-position = Vector2(2.38419e-07, -4.76837e-07)
-scale = Vector2(20, 20)
-mesh = SubResource("BoxMesh_fxg8u")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D"]
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_drs82")
+animation = &"Interior"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_lt0q2")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D/AnimatedSprite2D"]
+position = Vector2(-595.513, 9.524)
+scale = Vector2(3.005, 3.005)
+sprite_frames = SubResource("SpriteFrames_xaqgq")
+animation = &"Normal"
 
-[node name="Oxygen" type="Node2D" parent="."]
-position = Vector2(-22, 11)
-script = ExtResource("1_hbh4w")
+[node name="Camera2D" type="Camera2D" parent="StaticBody2D/AnimatedSprite2D"]
+position = Vector2(-19.0483, 266.667)
+scale = Vector2(9.52381, 9.52381)
+zoom = Vector2(1.81, 1.81)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Oxygen"]
-collision_layer = 2
-collision_mask = 2
+[node name="floor" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-257.143, 502.217)
+scale = Vector2(32.89, 32.89)
+shape = SubResource("RectangleShape2D_a5mkv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Oxygen/StaticBody2D"]
-position = Vector2(46, -21)
-shape = SubResource("RectangleShape2D_0yyg6")
+[node name="leftWall" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1123.81, 190.476)
+rotation = 1.5708
+scale = Vector2(33.175, 33.175)
+shape = SubResource("RectangleShape2D_dno8r")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Oxygen/StaticBody2D/CollisionShape2D"]
-position = Vector2(0, -6)
-sprite_frames = SubResource("SpriteFrames_racgh")
-animation = &"On"
-
-[node name="Water" type="Sprite2D" parent="Oxygen/StaticBody2D/CollisionShape2D/AnimatedSprite2D"]
-z_index = -1
-texture = ExtResource("2_6pudd")
-
-[node name="Background" type="Sprite2D" parent="Oxygen/StaticBody2D/CollisionShape2D/AnimatedSprite2D"]
-z_index = -2
-texture = ExtResource("5_t3jv3")
-
-[node name="Area2D" type="Area2D" parent="Oxygen/StaticBody2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Oxygen/StaticBody2D/Area2D"]
-position = Vector2(46, -21)
-shape = SubResource("RectangleShape2D_0yyg6")
-
-[node name="Pressure" type="Node2D" parent="."]
-position = Vector2(-161, 0)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Pressure"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pressure/StaticBody2D"]
-position = Vector2(47.5, -11)
-shape = SubResource("RectangleShape2D_dkee8")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pressure/StaticBody2D/CollisionShape2D"]
-position = Vector2(0.5, 9.53674e-07)
-scale = Vector2(0.11, 0.10978)
-sprite_frames = SubResource("SpriteFrames_7e6bb")
-animation = &"4_4"
-
-[node name="Area2D" type="Area2D" parent="Pressure/StaticBody2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pressure/StaticBody2D/Area2D"]
-position = Vector2(47.5, -11)
-shape = SubResource("RectangleShape2D_dkee8")
-
-[node name="Navigation" type="Node2D" parent="."]
-position = Vector2(26, -1)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Navigation"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="Table" type="Sprite2D" parent="Navigation/StaticBody2D"]
-position = Vector2(45, -18)
-scale = Vector2(0.69, 0.69)
-texture = ExtResource("7_bennc")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Navigation/StaticBody2D"]
-position = Vector2(48, -14.5)
-shape = SubResource("RectangleShape2D_pthi2")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Navigation/StaticBody2D/CollisionShape2D"]
-position = Vector2(-1, -6.5)
-scale = Vector2(0.56, 0.56)
-sprite_frames = SubResource("SpriteFrames_7fv1c")
-autoplay = "default"
-
-[node name="Area2D" type="Area2D" parent="Navigation/StaticBody2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Navigation/StaticBody2D/Area2D"]
-position = Vector2(48, -14.5)
-shape = SubResource("RectangleShape2D_pthi2")
-
-[node name="Temperature" type="Node2D" parent="."]
-position = Vector2(83, -1)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Temperature"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Temperature/StaticBody2D"]
-position = Vector2(46, -14.5)
-shape = SubResource("RectangleShape2D_541co")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Temperature/StaticBody2D/CollisionShape2D"]
-position = Vector2(0, -9.5)
-scale = Vector2(0.04, 0.04)
-sprite_frames = SubResource("SpriteFrames_8iam6")
-animation = &"On"
-autoplay = "On"
-
-[node name="Area2D" type="Area2D" parent="Temperature/StaticBody2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Temperature/StaticBody2D/Area2D"]
-position = Vector2(46, -14.5)
-shape = SubResource("RectangleShape2D_541co")
-
-[node name="Electrical" type="Node2D" parent="."]
-position = Vector2(-94, -1)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Electrical"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Electrical/StaticBody2D"]
-position = Vector2(46, -15)
-shape = SubResource("RectangleShape2D_vp3rk")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Electrical/StaticBody2D/CollisionShape2D"]
-position = Vector2(0, -3)
-scale = Vector2(0.06, 0.06)
-sprite_frames = SubResource("SpriteFrames_scdg1")
-animation = &"Stable"
-
-[node name="Area2D" type="Area2D" parent="Electrical/StaticBody2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Electrical/StaticBody2D/Area2D"]
-position = Vector2(46, -15)
-shape = SubResource("RectangleShape2D_vp3rk")
+[node name="rightWall" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(571.428, 66.6668)
+rotation = 1.5708
+scale = Vector2(15.4, 15.4)
+shape = SubResource("RectangleShape2D_nex1b")
 
 [node name="Player" parent="." instance=ExtResource("1_2xctj")]
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(2, 0)
-zoom = Vector2(4, 4)
-
-[node name="TextHolder" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Oxygen" type="Label" parent="TextHolder"]
-layout_mode = 0
-offset_left = 11.0
-offset_top = -57.0
-offset_right = 79.0
-offset_bottom = -34.0
-scale = Vector2(0.439928, 0.628409)
-text = "Oxygen"
-
-[node name="Pressure" type="Label" parent="TextHolder"]
-layout_mode = 0
-offset_left = -129.0
-offset_top = -57.0
-offset_right = -61.0
-offset_bottom = -34.0
-scale = Vector2(0.439928, 0.628409)
-text = "Pressure"
-
-[node name="Nav" type="Label" parent="TextHolder"]
-layout_mode = 0
-offset_left = 64.0
-offset_top = -56.0
-offset_right = 132.0
-offset_bottom = -33.0
-scale = Vector2(0.439928, 0.628409)
-text = "Nav"
-
-[node name="Temp" type="Label" parent="TextHolder"]
-layout_mode = 0
-offset_left = 119.0
-offset_top = -58.0
-offset_right = 187.0
-offset_bottom = -35.0
-scale = Vector2(0.439928, 0.628409)
-text = "Temp
-"
-
-[node name="Electrical" type="Label" parent="TextHolder"]
-layout_mode = 0
-offset_left = -60.0
-offset_top = -58.0
-offset_right = 8.0
-offset_bottom = -35.0
-scale = Vector2(0.439928, 0.628409)
-text = "Power"
-
-[connection signal="body_entered" from="Oxygen/StaticBody2D/Area2D" to="Player" method="oxygenEnter"]
-[connection signal="body_exited" from="Oxygen/StaticBody2D/Area2D" to="Player" method="oxygenExit"]
-[connection signal="body_entered" from="Pressure/StaticBody2D/Area2D" to="Player" method="pressureEnter"]
-[connection signal="body_exited" from="Pressure/StaticBody2D/Area2D" to="Player" method="pressureExit"]
-[connection signal="body_entered" from="Navigation/StaticBody2D/Area2D" to="Player" method="navigationEnter"]
-[connection signal="body_exited" from="Navigation/StaticBody2D/Area2D" to="Player" method="navigationExit"]
-[connection signal="body_entered" from="Temperature/StaticBody2D/Area2D" to="Player" method="tempEnter"]
-[connection signal="body_exited" from="Temperature/StaticBody2D/Area2D" to="Player" method="tempExit"]
-[connection signal="body_entered" from="Electrical/StaticBody2D/Area2D" to="Player" method="elecEnter"]
-[connection signal="body_exited" from="Electrical/StaticBody2D/Area2D" to="Player" method="elecExit"]
+position = Vector2(364, 285)
