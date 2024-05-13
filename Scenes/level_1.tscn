@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://bxscfo2x0d3vj" path="res://Scenes/Player.tscn" id="1_2xctj"]
 [ext_resource type="Script" path="res://Scenes/Oxygen.gd" id="1_hbh4w"]
-[ext_resource type="Texture2D" uid="uid://wloscmkaj68u" path="res://Assets/sprites/water_sprite.png" id="2_6pudd"]
-[ext_resource type="Texture2D" uid="uid://da6q4ed3xrhd5" path="res://Assets/sprites/oxygen_module_on.png" id="2_r02ct"]
-[ext_resource type="Texture2D" uid="uid://w67uy3w245tk" path="res://Assets/sprites/oxygen_module_50.png" id="4_u4ck2"]
-[ext_resource type="Texture2D" uid="uid://m6ot3fsarvwd" path="res://Assets/sprites/background.png" id="5_t3jv3"]
+[ext_resource type="Texture2D" uid="uid://wloscmkaj68u" path="res://Assets/sprites/OxygenReg/water_sprite.png" id="2_6pudd"]
+[ext_resource type="Texture2D" uid="uid://da6q4ed3xrhd5" path="res://Assets/sprites/OxygenReg/oxygen_module_on.png" id="2_r02ct"]
+[ext_resource type="Texture2D" uid="uid://w67uy3w245tk" path="res://Assets/sprites/OxygenReg/oxygen_module_50.png" id="4_u4ck2"]
+[ext_resource type="Texture2D" uid="uid://m6ot3fsarvwd" path="res://Assets/sprites/OxygenReg/background.png" id="5_t3jv3"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fxg8u"]
 
@@ -198,8 +198,7 @@ shape = SubResource("RectangleShape2D_0yyg6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Oxygen/StaticBody2D/CollisionShape2D"]
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_racgh")
-animation = &"Off"
-frame_progress = 0.487563
+animation = &"On"
 
 [node name="Water" type="Sprite2D" parent="Oxygen/StaticBody2D/CollisionShape2D/AnimatedSprite2D"]
 z_index = -1

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://da6q4ed3xrhd5"
-path="res://.godot/imported/oxygen_module_on.png-25177a2bc68c1fd375457c1b89f31ec5.ctex"
+uid="uid://ci0shvlwvmowc"
+path="res://.godot/imported/ComputerSheet.png-c2fff0063f254d98a1599b63e6daf448.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/oxygen_module_on.png"
-dest_files=["res://.godot/imported/oxygen_module_on.png-25177a2bc68c1fd375457c1b89f31ec5.ctex"]
+source_file="res://Assets/sprites/ComputerSheet.png"
+dest_files=["res://.godot/imported/ComputerSheet.png-c2fff0063f254d98a1599b63e6daf448.ctex"]
 
 [params]
 

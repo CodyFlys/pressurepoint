@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wloscmkaj68u"
-path="res://.godot/imported/water_sprite.png-dfb8c2f48cfcbeeb9f9f3ddb1a7c3cf5.ctex"
+uid="uid://da6q4ed3xrhd5"
+path="res://.godot/imported/oxygen_module_on.png-39cb054039c3662c8dbc93be9c7c9fd4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/water_sprite.png"
-dest_files=["res://.godot/imported/water_sprite.png-dfb8c2f48cfcbeeb9f9f3ddb1a7c3cf5.ctex"]
+source_file="res://Assets/sprites/OxygenReg/oxygen_module_on.png"
+dest_files=["res://.godot/imported/oxygen_module_on.png-39cb054039c3662c8dbc93be9c7c9fd4.ctex"]
 
 [params]
 

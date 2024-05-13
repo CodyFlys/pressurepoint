@@ -53,3 +53,5 @@ func _process(delta):
 			player.modulate.b += timeWithoutOxygen
 			oxgen_sprite.play("Off")
 
+func reset(): # TODO
+	pass

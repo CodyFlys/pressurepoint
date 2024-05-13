@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m6ot3fsarvwd"
-path="res://.godot/imported/background.png-69e567fb1163963117c028e3cfab1491.ctex"
+uid="uid://e51kjk7kqw5j"
+path="res://.godot/imported/powerBoxSHeet.png-a9dd162f186a63b54da509e47d1ff645.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/background.png"
-dest_files=["res://.godot/imported/background.png-69e567fb1163963117c028e3cfab1491.ctex"]
+source_file="res://Assets/sprites/powerBoxSHeet.png"
+dest_files=["res://.godot/imported/powerBoxSHeet.png-a9dd162f186a63b54da509e47d1ff645.ctex"]
 
 [params]
 
