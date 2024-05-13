@@ -57,6 +57,6 @@ animation = &"Idle"
 frame_progress = 0.321085
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, -10)
+position = Vector2(2, -4.675)
 scale = Vector2(0.500216, 0.45736)
 shape = SubResource("CircleShape2D_y55a7")
