@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bc3bh4xkwj1gv"]
+[gd_scene load_steps=14 format=3 uid="uid://bc3bh4xkwj1gv"]
 
 [ext_resource type="Texture2D" uid="uid://n8n8yp30l5cx" path="res://Assets/sprites/SubSheet.png" id="1_j4hlo"]
+[ext_resource type="Texture2D" uid="uid://35kdj8csagu6" path="res://Assets/sprites/windowSheet.png" id="2_17ukb"]
 [ext_resource type="PackedScene" uid="uid://bxscfo2x0d3vj" path="res://Scenes/Player.tscn" id="2_bf15g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8d2mj"]
@@ -18,8 +19,65 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6n5pv"]
+atlas = ExtResource("2_17ukb")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdoy0"]
+atlas = ExtResource("2_17ukb")
+region = Rect2(160, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqxmq"]
+atlas = ExtResource("2_17ukb")
+region = Rect2(0, 160, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1jii"]
+atlas = ExtResource("2_17ukb")
+region = Rect2(160, 160, 160, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xaqgq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6n5pv")
+}],
+"loop": true,
+"name": &"Normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdoy0")
+}],
+"loop": true,
+"name": &"crack_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqxmq")
+}],
+"loop": true,
+"name": &"crack_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1jii")
+}],
+"loop": true,
+"name": &"crack_3",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5mkv"]
 size = Vector2(50.3844, 1.31303)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dno8r"]
+size = Vector2(20, 2.24889)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nex1b"]
+size = Vector2(59.4743, 3.8157)
 
 [node name="TestScene" type="Node2D"]
 position = Vector2(-6, 7)
@@ -33,15 +91,33 @@ scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_drs82")
 animation = &"Interior"
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D/AnimatedSprite2D"]
+position = Vector2(-595.513, 9.524)
+scale = Vector2(3.005, 3.005)
+sprite_frames = SubResource("SpriteFrames_xaqgq")
+animation = &"Normal"
+
 [node name="Camera2D" type="Camera2D" parent="StaticBody2D/AnimatedSprite2D"]
 position = Vector2(-19.0483, 266.667)
 scale = Vector2(9.52381, 9.52381)
 zoom = Vector2(1.81, 1.81)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="floor" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-257.143, 502.217)
 scale = Vector2(32.89, 32.89)
 shape = SubResource("RectangleShape2D_a5mkv")
+
+[node name="leftWall" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1123.81, 190.476)
+rotation = 1.5708
+scale = Vector2(33.175, 33.175)
+shape = SubResource("RectangleShape2D_dno8r")
+
+[node name="rightWall" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(571.428, 66.6668)
+rotation = 1.5708
+scale = Vector2(15.4, 15.4)
+shape = SubResource("RectangleShape2D_nex1b")
 
 [node name="Player" parent="." instance=ExtResource("2_bf15g")]
 position = Vector2(364, 285)
