@@ -34,7 +34,7 @@ func _process(delta):
 		
 
 func flickerLights():
-	if light.energy > 0.01 and lightsOn == false:
+	if light.energy > 0.4 and lightsOn == false:
 		lightsOn = true
 		lightHandler()
 		await get_tree().create_timer(0.12).timeout
