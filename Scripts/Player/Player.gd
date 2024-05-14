@@ -7,6 +7,7 @@ const SPEED = 100.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var isNavigating = false
+@export var isInteracting = false
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -19,7 +20,7 @@ func _physics_process(delta):
 	
 	
 	# Flips sprite based on direct
-	if isNavigating == false:
+	if isNavigating == false and isInteracting == false:
 		if direction > 0:
 			animated_sprite.flip_h = false
 		elif direction < 0:
@@ -111,7 +112,7 @@ func elecExit(_body):
 	#if module == null:
 		#print("module Swapped", module)
 
-func handleInteraction(event):
+func handleInteraction(_event):
 	print('module: ', module)
 	
 	if module == null:
