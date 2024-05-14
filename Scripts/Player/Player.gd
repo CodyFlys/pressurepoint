@@ -138,9 +138,9 @@ func handleInteraction(_event):
 
 func _input(event):
 	if module != null:
-		if event.is_action_pressed("interact"):
+		if isNavigating == false and event.is_action_pressed("interact"):
 			handleInteraction(event)
-		elif isNavigating == true and event.is_action_pressed("exitInteract"):
+		elif isNavigating == true and event.is_action_pressed("interact"):
 			isNavigating = false
 			print("Stopped Navigating")
 			

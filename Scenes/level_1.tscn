@@ -1,10 +1,11 @@
-[gd_scene load_steps=73 format=3 uid="uid://b84pgl2m4ufpx"]
+[gd_scene load_steps=76 format=3 uid="uid://b84pgl2m4ufpx"]
 
 [ext_resource type="PackedScene" uid="uid://bxscfo2x0d3vj" path="res://Scenes/Player.tscn" id="1_2xctj"]
 [ext_resource type="Script" path="res://Scenes/Game_Controller.gd" id="1_51mmq"]
 [ext_resource type="Texture2D" uid="uid://dn1ghy6bqilcb" path="res://Assets/sprites/SubSheet.png" id="1_fsj1l"]
 [ext_resource type="Texture2D" uid="uid://35kdj8csagu6" path="res://Assets/sprites/windowSheet.png" id="2_ua3o6"]
 [ext_resource type="Texture2D" uid="uid://lpid70q0dwcn" path="res://Assets/sprites/New Piskel (13).png" id="4_e7lfa"]
+[ext_resource type="Texture2D" uid="uid://dyf2iqi7ne20e" path="res://Assets/sprites/SubLeg.png" id="4_fbsay"]
 [ext_resource type="Texture2D" uid="uid://bo58i6mb1wc0o" path="res://Assets/sprites/Untitled-3.png" id="5_cuvc1"]
 [ext_resource type="Texture2D" uid="uid://dcs5bst8fv0s" path="res://Assets/sprites/Table.png" id="7_hbem2"]
 [ext_resource type="Texture2D" uid="uid://ci0shvlwvmowc" path="res://Assets/sprites/ComputerSheet.png" id="8_km7a1"]
@@ -80,6 +81,21 @@ animations = [{
 }],
 "loop": true,
 "name": &"crack_3",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnq77"]
+atlas = ExtResource("4_fbsay")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ogcr7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnq77")
+}],
+"loop": true,
+"name": &"default",
 "speed": 5.0
 }]
 
@@ -409,22 +425,29 @@ position = Vector2(-6, 7)
 script = ExtResource("1_51mmq")
 
 [node name="ship" type="StaticBody2D" parent="."]
+z_index = -1
 position = Vector2(420, 239)
 scale = Vector2(0.105, 0.105)
 collision_layer = 4
 collision_mask = 4
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ship"]
+[node name="ship" type="AnimatedSprite2D" parent="ship"]
 sprite_frames = SubResource("SpriteFrames_drs82")
 animation = &"Interior"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ship/AnimatedSprite2D"]
+[node name="window" type="AnimatedSprite2D" parent="ship/ship"]
 position = Vector2(-595.513, 9.524)
 scale = Vector2(3.005, 3.005)
 sprite_frames = SubResource("SpriteFrames_xaqgq")
 animation = &"Normal"
 
-[node name="Camera2D" type="Camera2D" parent="ship/AnimatedSprite2D"]
+[node name="Leg" type="AnimatedSprite2D" parent="ship/ship"]
+z_index = 1
+position = Vector2(284.739, 698.783)
+scale = Vector2(31.28, 31.28)
+sprite_frames = SubResource("SpriteFrames_ogcr7")
+
+[node name="Camera2D" type="Camera2D" parent="ship/ship"]
 position = Vector2(-19.0483, 266.667)
 scale = Vector2(9.52381, 9.52381)
 zoom = Vector2(2.04, 2.04)
@@ -491,15 +514,15 @@ energy = 0.0
 blend_mode = 1
 
 [node name="Background" type="Sprite2D" parent="."]
-z_index = -1
+z_index = -3
 position = Vector2(462.515, 0)
 scale = Vector2(2.4768, 2.10594)
 texture = ExtResource("5_cuvc1")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 visible = false
-z_index = -1
-position = Vector2(563, 257)
+z_index = -2
+position = Vector2(559, 242)
 amount = 1000
 amount_ratio = 0.7966
 process_material = SubResource("ParticleProcessMaterial_xm2h7")
@@ -511,8 +534,8 @@ randomness = 0.53
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
 visible = false
-z_index = -1
-position = Vector2(277, 257)
+z_index = -2
+position = Vector2(281, 251)
 amount = 1000
 amount_ratio = 0.7966
 process_material = SubResource("ParticleProcessMaterial_xm2h7")
@@ -630,7 +653,7 @@ position = Vector2(46, -14.5)
 shape = SubResource("RectangleShape2D_u1sd4")
 
 [node name="Oxygen" type="Node2D" parent="."]
-position = Vector2(395, 300)
+position = Vector2(395.33, 300.39)
 script = ExtResource("12_0v37t")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Oxygen"]

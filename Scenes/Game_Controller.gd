@@ -21,6 +21,7 @@ func _process(delta):
 	if player.isNavigating == true:
 		if light.energy < 0.70:
 			light.energy = light.energy + 0.0001
+			print(light.energy)
 			flickerLights()
 		else:
 			pass
