@@ -22,8 +22,6 @@ func _process(delta):
 	else:
 		pass
 	
-	
-	
 	if background.position.y > -1580:
 		background.position.y -= 50 * delta
 	elif atBottom == false:

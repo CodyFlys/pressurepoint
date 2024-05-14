@@ -54,7 +54,8 @@ func oxygenEnter(_body):
 
 func oxygenExit(_body):
 	#print("O Exit")
-	module = null
+	if module == "oxygen":
+		module = null
 	#if module == null:
 		#print("module Swapped", module)
 
@@ -66,7 +67,8 @@ func pressureEnter(_body):
 
 func pressureExit(_body):
 	#print("P Exit")
-	module = null
+	if module == "pressure":
+		module = null
 	#if module == null:
 		#print("module Swapped", module)
 
@@ -78,7 +80,8 @@ func navigationEnter(_body):
 
 func navigationExit(_body):
 	#print("N Exit")
-	module = null
+	if module == "navigation":
+		module = null
 	#if module == null:
 		#print("module Swapped", module)
 
@@ -90,7 +93,8 @@ func tempEnter(_body):
 
 func tempExit(_body):
 	#print("T Exit")
-	module = null
+	if module == "temp":
+		module = null
 	#if module == null:
 		#print("module Swapped", module)
 
@@ -102,7 +106,8 @@ func elecEnter(_body):
 
 func elecExit(_body):
 	#print("E Exit")
-	module = null
+	if module == "elec":
+		module = null
 	#if module == null:
 		#print("module Swapped", module)
 
