@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5ag2ngpxyg62"
-path="res://.godot/imported/oxygen_off.png-ddc667b8a1da936cfe4ea6c64974c10c.ctex"
+uid="uid://bo58i6mb1wc0o"
+path="res://.godot/imported/Untitled-3.png-a0a9bebfb680bc1f1b94c5dab6faaa3b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/OxygenReg/oxygen_off.png"
-dest_files=["res://.godot/imported/oxygen_off.png-ddc667b8a1da936cfe4ea6c64974c10c.ctex"]
+source_file="res://Assets/sprites/Untitled-3.png"
+dest_files=["res://.godot/imported/Untitled-3.png-a0a9bebfb680bc1f1b94c5dab6faaa3b.ctex"]
 
 [params]
 

@@ -1,0 +1,93 @@
+[gd_scene load_steps=12 format=3 uid="uid://du84pbfo4hosa"]
+
+[ext_resource type="Texture2D" uid="uid://dcs5bst8fv0s" path="res://Assets/sprites/Table.png" id="1_52hgf"]
+[ext_resource type="Texture2D" uid="uid://ci0shvlwvmowc" path="res://Assets/sprites/ComputerSheet.png" id="2_asxfe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sc1un"]
+size = Vector2(26, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hk0o4"]
+atlas = ExtResource("2_asxfe")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jfrr"]
+atlas = ExtResource("2_asxfe")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0f3e"]
+atlas = ExtResource("2_asxfe")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0lnt"]
+atlas = ExtResource("2_asxfe")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2uiv"]
+atlas = ExtResource("2_asxfe")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38fkm"]
+atlas = ExtResource("2_asxfe")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqhlt"]
+atlas = ExtResource("2_asxfe")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n77a8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hk0o4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jfrr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0f3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0lnt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2uiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38fkm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqhlt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Navigation" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Navigation"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="Table" type="Sprite2D" parent="Navigation/StaticBody2D"]
+position = Vector2(45, -18)
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("1_52hgf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Navigation/StaticBody2D"]
+position = Vector2(48, -14.5)
+shape = SubResource("RectangleShape2D_sc1un")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Navigation/StaticBody2D/CollisionShape2D"]
+position = Vector2(-1, -6.5)
+scale = Vector2(0.56, 0.56)
+sprite_frames = SubResource("SpriteFrames_n77a8")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="Navigation/StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Navigation/StaticBody2D/Area2D"]
+position = Vector2(48, -14.5)
+shape = SubResource("RectangleShape2D_sc1un")

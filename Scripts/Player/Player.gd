@@ -107,6 +107,7 @@ func elecExit(_body):
 		#print("module Swapped", module)
 
 func handleInteraction():
+	print('module: ', module)
 	
 	if module == null:
 		print("No Action Too Far")

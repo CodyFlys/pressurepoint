@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b84pgl2m4ufpx"]
+[gd_scene load_steps=19 format=3 uid="uid://b84pgl2m4ufpx"]
 
 [ext_resource type="PackedScene" uid="uid://bxscfo2x0d3vj" path="res://Scenes/Player.tscn" id="1_2xctj"]
 [ext_resource type="Script" path="res://Scenes/Game_Controller.gd" id="1_51mmq"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://35kdj8csagu6" path="res://Assets/sprites/windowSheet.png" id="2_ua3o6"]
 [ext_resource type="Texture2D" uid="uid://lpid70q0dwcn" path="res://Assets/sprites/New Piskel (13).png" id="4_e7lfa"]
 [ext_resource type="Texture2D" uid="uid://bo58i6mb1wc0o" path="res://Assets/sprites/Untitled-3.png" id="5_cuvc1"]
-[ext_resource type="PackedScene" uid="uid://du84pbfo4hosa" path="res://Scenes/module_computer.tscn" id="8_05vdp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5xdrt"]
 atlas = ExtResource("1_fsj1l")
@@ -93,15 +92,6 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0, 0)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xm2h7"]
-particle_flag_disable_z = true
-radial_accel_min = -74.51
-radial_accel_max = 37.31
-turbulence_enabled = true
-turbulence_noise_strength = 4.85
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5km2e"]
-
 [node name="Game" type="Node2D"]
 position = Vector2(-6, 7)
 script = ExtResource("1_51mmq")
@@ -109,8 +99,6 @@ script = ExtResource("1_51mmq")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(420, 239)
 scale = Vector2(0.105, 0.105)
-collision_layer = 4
-collision_mask = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D"]
 sprite_frames = SubResource("SpriteFrames_drs82")
@@ -125,7 +113,7 @@ animation = &"Normal"
 [node name="Camera2D" type="Camera2D" parent="StaticBody2D/AnimatedSprite2D"]
 position = Vector2(-19.0483, 266.667)
 scale = Vector2(9.52381, 9.52381)
-zoom = Vector2(2.04, 2.04)
+zoom = Vector2(0.495, 0.495)
 
 [node name="floor" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-257.143, 502.217)
@@ -145,10 +133,7 @@ scale = Vector2(15.4, 15.4)
 shape = SubResource("RectangleShape2D_nex1b")
 
 [node name="Player" parent="." instance=ExtResource("1_2xctj")]
-z_index = 5
 position = Vector2(364, 286)
-collision_layer = 4
-collision_mask = 4
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(458, 240)
@@ -171,42 +156,6 @@ energy = 0.0
 blend_mode = 1
 
 [node name="Background" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(416, 2052)
+position = Vector2(580, 2052)
 scale = Vector2(2.4768, 2.10594)
 texture = ExtResource("5_cuvc1")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-z_index = -1
-position = Vector2(563, 257)
-amount = 1000
-amount_ratio = 0.7966
-process_material = SubResource("ParticleProcessMaterial_xm2h7")
-lifetime = 11.72
-preprocess = 32.14
-speed_scale = 2.71
-explosiveness = 0.04
-randomness = 0.53
-
-[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
-z_index = -1
-position = Vector2(277, 257)
-amount = 1000
-amount_ratio = 0.7966
-process_material = SubResource("ParticleProcessMaterial_xm2h7")
-lifetime = 11.72
-preprocess = 32.14
-speed_scale = 2.71
-explosiveness = 0.04
-randomness = 0.53
-
-[node name="Node2D" parent="." instance=ExtResource("8_05vdp")]
-position = Vector2(359, 288)
-
-[node name="Area2D" type="Area2D" parent="Node2D"]
-position = Vector2(48, -12)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
-shape = SubResource("RectangleShape2D_5km2e")
-
-[connection signal="body_entered" from="Node2D/Area2D" to="Player" method="_on_area_2d_body_entered"]

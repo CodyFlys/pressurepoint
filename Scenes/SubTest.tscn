@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://bc3bh4xkwj1gv"]
 
-[ext_resource type="Texture2D" uid="uid://n8n8yp30l5cx" path="res://Assets/sprites/SubSheet.png" id="1_j4hlo"]
+[ext_resource type="Texture2D" uid="uid://dn1ghy6bqilcb" path="res://Assets/sprites/SubSheet.png" id="1_j4hlo"]
 [ext_resource type="Texture2D" uid="uid://35kdj8csagu6" path="res://Assets/sprites/windowSheet.png" id="2_17ukb"]
 [ext_resource type="PackedScene" uid="uid://bxscfo2x0d3vj" path="res://Scenes/Player.tscn" id="2_bf15g"]
 
@@ -87,7 +87,6 @@ position = Vector2(420, 238)
 scale = Vector2(0.105, 0.105)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D"]
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_drs82")
 animation = &"Interior"
 
