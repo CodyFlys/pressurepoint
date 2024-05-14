@@ -6,8 +6,10 @@ extends Node2D
 @onready var outLight1 = $ship/outsideLight
 @onready var outLight2 = $ship/outsideLight2
 var lightsOn = false
-
 var atBottom = false
+@onready var player = $Player
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,20 +18,20 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if light.energy < 0.70:
-		light.energy = light.energy + 0.0001
-		flickerLights()
-	else:
-		pass
-	
-	if background.position.y > -1580:
-		background.position.y -= 50 * delta
-	elif atBottom == false:
-		print("Bottom Reached")
-		atBottom = true
-	else:
-		pass
+	if player.isNavigating == true:
+		if light.energy < 0.70:
+			light.energy = light.energy + 0.0001
+			flickerLights()
+		else:
+			pass
 		
+		if background.position.y > -1580:
+			background.position.y -= 50 * delta
+		elif atBottom == false:
+			print("Bottom Reached")
+			atBottom = true
+		else:
+			pass
 
 func flickerLights():
 	if light.energy > 0.4 and lightsOn == false:

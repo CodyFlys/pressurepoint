@@ -6,7 +6,7 @@ const SPEED = 100.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+@export var isNavigating = false
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -19,22 +19,22 @@ func _physics_process(delta):
 	
 	
 	# Flips sprite based on direct
-	if direction > 0:
-		animated_sprite.flip_h = false
-	elif direction < 0:
-		animated_sprite.flip_h = true
-	
-	# Handles Switching Animations
-	if direction == 0:
-		animated_sprite.play("Idle")
-	else:
-		animated_sprite.play("Walk")
-	
-	# Moves sprite
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+	if isNavigating == false:
+		if direction > 0:
+			animated_sprite.flip_h = false
+		elif direction < 0:
+			animated_sprite.flip_h = true
+		
+		# Handles Switching Animations
+		if direction == 0:
+			animated_sprite.play("Idle")
+		else:
+			animated_sprite.play("Walk")
+		
+		if direction:
+			velocity.x = direction * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
 
@@ -111,7 +111,7 @@ func elecExit(_body):
 	#if module == null:
 		#print("module Swapped", module)
 
-func handleInteraction():
+func handleInteraction(event):
 	print('module: ', module)
 	
 	if module == null:
@@ -126,7 +126,8 @@ func handleInteraction():
 		print("pressure")
 		
 	elif module == "navigation":
-		print("navigation")
+			isNavigating = true
+			print("Is Navigating")
 		
 	elif module == "temp":
 		print("Temp")
@@ -137,6 +138,10 @@ func handleInteraction():
 func _input(event):
 	if module != null:
 		if event.is_action_pressed("interact"):
-			handleInteraction()
+			handleInteraction(event)
+		elif isNavigating == true and event.is_action_pressed("exitInteract"):
+			isNavigating = false
+			print("Stopped Navigating")
+			
 	elif event.is_action_pressed("interact"):
 		print("No Action Possible")
