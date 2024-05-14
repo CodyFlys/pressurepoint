@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b84pgl2m4ufpx"]
+[gd_scene load_steps=31 format=3 uid="uid://b84pgl2m4ufpx"]
 
 [ext_resource type="PackedScene" uid="uid://bxscfo2x0d3vj" path="res://Scenes/Player.tscn" id="1_2xctj"]
 [ext_resource type="Script" path="res://Scenes/Game_Controller.gd" id="1_51mmq"]
@@ -6,7 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://35kdj8csagu6" path="res://Assets/sprites/windowSheet.png" id="2_ua3o6"]
 [ext_resource type="Texture2D" uid="uid://lpid70q0dwcn" path="res://Assets/sprites/New Piskel (13).png" id="4_e7lfa"]
 [ext_resource type="Texture2D" uid="uid://bo58i6mb1wc0o" path="res://Assets/sprites/Untitled-3.png" id="5_cuvc1"]
-[ext_resource type="PackedScene" uid="uid://du84pbfo4hosa" path="res://Scenes/module_computer.tscn" id="8_05vdp"]
+[ext_resource type="Texture2D" uid="uid://dcs5bst8fv0s" path="res://Assets/sprites/Table.png" id="7_hbem2"]
+[ext_resource type="Texture2D" uid="uid://ci0shvlwvmowc" path="res://Assets/sprites/ComputerSheet.png" id="8_km7a1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5xdrt"]
 atlas = ExtResource("1_fsj1l")
@@ -100,49 +101,123 @@ radial_accel_max = 37.31
 turbulence_enabled = true
 turbulence_noise_strength = 4.85
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5km2e"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yepbu"]
+size = Vector2(26, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hk0o4"]
+atlas = ExtResource("8_km7a1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jfrr"]
+atlas = ExtResource("8_km7a1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0f3e"]
+atlas = ExtResource("8_km7a1")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0lnt"]
+atlas = ExtResource("8_km7a1")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2uiv"]
+atlas = ExtResource("8_km7a1")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38fkm"]
+atlas = ExtResource("8_km7a1")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqhlt"]
+atlas = ExtResource("8_km7a1")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g3hr8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hk0o4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jfrr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0f3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0lnt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2uiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38fkm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqhlt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Game" type="Node2D"]
 position = Vector2(-6, 7)
 script = ExtResource("1_51mmq")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="ship" type="StaticBody2D" parent="."]
 position = Vector2(420, 239)
 scale = Vector2(0.105, 0.105)
 collision_layer = 4
 collision_mask = 4
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ship"]
 sprite_frames = SubResource("SpriteFrames_drs82")
 animation = &"Interior"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D/AnimatedSprite2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ship/AnimatedSprite2D"]
 position = Vector2(-595.513, 9.524)
 scale = Vector2(3.005, 3.005)
 sprite_frames = SubResource("SpriteFrames_xaqgq")
 animation = &"Normal"
 
-[node name="Camera2D" type="Camera2D" parent="StaticBody2D/AnimatedSprite2D"]
+[node name="Camera2D" type="Camera2D" parent="ship/AnimatedSprite2D"]
 position = Vector2(-19.0483, 266.667)
 scale = Vector2(9.52381, 9.52381)
 zoom = Vector2(2.04, 2.04)
 
-[node name="floor" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="floor" type="CollisionShape2D" parent="ship"]
 position = Vector2(-257.143, 502.217)
 scale = Vector2(32.89, 32.89)
 shape = SubResource("RectangleShape2D_a5mkv")
 
-[node name="leftWall" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="leftWall" type="CollisionShape2D" parent="ship"]
 position = Vector2(-1123.81, 190.476)
 rotation = 1.5708
 scale = Vector2(33.175, 33.175)
 shape = SubResource("RectangleShape2D_dno8r")
 
-[node name="rightWall" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="rightWall" type="CollisionShape2D" parent="ship"]
 position = Vector2(571.428, 66.6668)
 rotation = 1.5708
 scale = Vector2(15.4, 15.4)
 shape = SubResource("RectangleShape2D_nex1b")
+
+[node name="outsideLight" type="PointLight2D" parent="ship"]
+visible = false
+position = Vector2(-1047.62, 1028.57)
+rotation = 0.0824085
+scale = Vector2(11.4365, 17.1677)
+texture = ExtResource("4_e7lfa")
+texture_scale = 0.2
+
+[node name="outsideLight2" type="PointLight2D" parent="ship"]
+visible = false
+position = Vector2(409.524, 1028.57)
+rotation = -0.140264
+scale = Vector2(11.4365, 17.1677)
+texture = ExtResource("4_e7lfa")
+texture_scale = 0.2
 
 [node name="Player" parent="." instance=ExtResource("1_2xctj")]
 z_index = 5
@@ -150,17 +225,19 @@ position = Vector2(364, 286)
 collision_layer = 4
 collision_mask = 4
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(458, 240)
+[node name="insideLight" type="PointLight2D" parent="."]
+position = Vector2(442, 248)
+scale = Vector2(1.09794, 1.27164)
+energy = 0.5
 texture = ExtResource("4_e7lfa")
 texture_scale = 0.2
 
-[node name="PointLight2D2" type="PointLight2D" parent="."]
+[node name="windowBloom" type="PointLight2D" parent="."]
 position = Vector2(354, 242)
 color = Color(0.00338321, 0.257174, 0.96529, 1)
 texture = SubResource("GradientTexture2D_45ipb")
 
-[node name="PointLight2D3" type="PointLight2D" parent="."]
+[node name="beacon" type="PointLight2D" parent="."]
 position = Vector2(515, 184)
 color = Color(0.898039, 0.0941176, 0, 1)
 texture = SubResource("GradientTexture2D_45ipb")
@@ -172,11 +249,12 @@ blend_mode = 1
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(416, 2052)
+position = Vector2(462.515, 0)
 scale = Vector2(2.4768, 2.10594)
 texture = ExtResource("5_cuvc1")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
 z_index = -1
 position = Vector2(563, 257)
 amount = 1000
@@ -189,6 +267,7 @@ explosiveness = 0.04
 randomness = 0.53
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+visible = false
 z_index = -1
 position = Vector2(277, 257)
 amount = 1000
@@ -200,13 +279,36 @@ speed_scale = 2.71
 explosiveness = 0.04
 randomness = 0.53
 
-[node name="Node2D" parent="." instance=ExtResource("8_05vdp")]
-position = Vector2(359, 288)
+[node name="Navigation" type="Node2D" parent="."]
+position = Vector2(371, 288)
+scale = Vector2(-1.04243, 1.19039)
 
-[node name="Area2D" type="Area2D" parent="Node2D"]
-position = Vector2(48, -12)
+[node name="StaticBody2D" type="StaticBody2D" parent="Navigation"]
+collision_layer = 2
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
-shape = SubResource("RectangleShape2D_5km2e")
+[node name="Table" type="Sprite2D" parent="Navigation/StaticBody2D"]
+position = Vector2(45, -18)
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("7_hbem2")
 
-[connection signal="body_entered" from="Node2D/Area2D" to="Player" method="_on_area_2d_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Navigation/StaticBody2D"]
+position = Vector2(48, -14.5)
+shape = SubResource("RectangleShape2D_yepbu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Navigation/StaticBody2D/CollisionShape2D"]
+position = Vector2(-1, -6.5)
+scale = Vector2(0.56, 0.56)
+sprite_frames = SubResource("SpriteFrames_g3hr8")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="Navigation/StaticBody2D"]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Navigation/StaticBody2D/Area2D"]
+position = Vector2(48, -14.5)
+shape = SubResource("RectangleShape2D_yepbu")
+
+[connection signal="body_entered" from="Navigation/StaticBody2D/Area2D" to="Player" method="navigationEnter"]
+[connection signal="body_exited" from="Navigation/StaticBody2D/Area2D" to="Player" method="navigationExit"]
