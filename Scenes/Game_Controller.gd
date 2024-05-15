@@ -9,9 +9,10 @@ var lightsOn = false
 var atBottom = false
 @onready var player = $Player
 var depthRaw = 20.00
-var Depth
+@export var Depth = "%.f" % 20
 @onready var depthSprite = $Control/Label/counter
 var tempDepth
+var current_font_color = Color(0, 0, 255)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -63,9 +64,10 @@ func depthHandler(delta):
 		if Depth != tempDepth:
 			tempDepth = Depth
 			depthSprite.text = Depth
-			print(Depth)
-			if int(Depth) >= 200:
+			#print(Depth)
+			if int(Depth) >= 300:
 				depthSprite.add_theme_color_override("font_color", Color(255, 0, 0))
+				pass
 		else:
 			return
 	elif player.isNavigating == false:

@@ -8,6 +8,7 @@ const SPEED = 100.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var isNavigating = false
 @export var isInteracting = false
+@onready var pressure = $"../Pressure"
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -112,7 +113,7 @@ func elecExit(_body):
 	#if module == null:
 		#print("module Swapped", module)
 
-func handleInteraction(_event):
+func handleInteraction(event):
 	print('module: ', module)
 	
 	if module == null:
@@ -124,7 +125,9 @@ func handleInteraction(_event):
 		print("Oxygen Reset")
 		
 	elif module == "pressure":
-		print("pressure")
+		if event.is_action_pressed("interact"):
+			pressure.health = 100
+			print("pressure")
 		
 	elif module == "navigation":
 			isNavigating = true
