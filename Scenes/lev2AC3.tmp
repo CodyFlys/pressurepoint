@@ -711,7 +711,7 @@ position = Vector2(0, -3)
 scale = Vector2(0.06, 0.06)
 sprite_frames = SubResource("SpriteFrames_yyio0")
 animation = &"Stable"
-frame_progress = 0.859239
+frame_progress = 0.982337
 
 [node name="Area2D" type="Area2D" parent="Electrical/StaticBody2D"]
 collision_layer = 5

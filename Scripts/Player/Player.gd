@@ -9,9 +9,15 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var isNavigating = false
 @export var isInteracting = false
 @onready var pressure = $"../Pressure"
+@onready var electrical = $"../Electrical"
+@onready var game = $".."
 
 func _physics_process(delta):
 	# Add the gravity.
+	
+	if isNavigating == true and electrical.powerOn == false:
+		isNavigating = false
+	
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
@@ -130,6 +136,7 @@ func handleInteraction(event):
 			print("pressure")
 		
 	elif module == "navigation":
+		if electrical.powerOn == true:
 			isNavigating = true
 			print("Is Navigating")
 		
@@ -137,6 +144,9 @@ func handleInteraction(event):
 		print("Temp")
 		
 	elif module == "elec":
+		electrical.powerOn = true
+		electrical.health = electrical.healthReset
+		game.flickerLights()
 		print("Elec")
 
 func _input(event):

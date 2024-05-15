@@ -35,7 +35,4 @@ func pressureDrain(_delta, depth):
 			pressure.play("1_4")
 		if health <= 0:
 			pressure.play("0_4")
-		
-		
-		print(health)
 	pass

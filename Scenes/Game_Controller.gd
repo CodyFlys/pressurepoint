@@ -9,14 +9,17 @@ var lightsOn = false
 var atBottom = false
 @onready var player = $Player
 var depthRaw = 20.00
-@export var Depth = "%.f" % 20
+@export var Depth = 20
 @onready var depthSprite = $Control/Label/counter
 var tempDepth
 var current_font_color = Color(0, 0, 255)
+@onready var electrical = $Electrical
+
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Depth = float("%.f" % 20)
 	pass
 
 
@@ -37,9 +40,28 @@ func _process(delta):
 			atBottom = true
 		else:
 			pass
+			
+	if electrical.powerOn == false and lightsOn == true:
+		print("called")
+		lightHandler()
+		lightsOn = false
 
 func flickerLights():
-	if light.energy > 0.4 and lightsOn == false:
+	if electrical.powerOn == true:
+		if int(Depth) >= 100 and lightsOn == false:
+			lightsOn = true
+			lightHandler()
+			await get_tree().create_timer(0.12).timeout
+			lightHandler()
+			await get_tree().create_timer(0.12).timeout
+			lightHandler()
+			await get_tree().create_timer(0.1).timeout
+			lightHandler()
+			await get_tree().create_timer(0.12).timeout
+			lightHandler()
+
+func flickerLightsDebug():
+	if lightsOn == false:
 		lightsOn = true
 		lightHandler()
 		await get_tree().create_timer(0.12).timeout
@@ -59,12 +81,11 @@ func depthHandler(delta):
 
 	if player.isNavigating == true:
 		depthRaw += 10 * delta
-		Depth = "%.f" % depthRaw
+		Depth = float("%.f" % depthRaw)
 
 		if Depth != tempDepth:
 			tempDepth = Depth
-			depthSprite.text = Depth
-			#print(Depth)
+			depthSprite.text = "%.f" % Depth
 			if int(Depth) >= 300:
 				depthSprite.add_theme_color_override("font_color", Color(255, 0, 0))
 				pass
