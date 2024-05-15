@@ -754,6 +754,7 @@ text = "Depth:"
 text_direction = 1
 
 [node name="counter" type="Label" parent="Control/Label"]
+layout_mode = 0
 offset_left = 51.0
 offset_right = 103.0
 offset_bottom = 23.0
