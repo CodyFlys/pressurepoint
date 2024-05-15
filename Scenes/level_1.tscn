@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://b84pgl2m4ufpx"]
+[gd_scene load_steps=86 format=3 uid="uid://b84pgl2m4ufpx"]
 
 [ext_resource type="PackedScene" uid="uid://bxscfo2x0d3vj" path="res://Scenes/Player.tscn" id="1_2xctj"]
 [ext_resource type="Script" path="res://Scenes/Game_Controller.gd" id="1_51mmq"]
@@ -259,6 +259,26 @@ size = Vector2(20, 32)
 atlas = ExtResource("10_ny6xl")
 region = Rect2(0, 0, 600, 400)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jywib"]
+atlas = ExtResource("10_ny6xl")
+region = Rect2(600, 800, 600, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qg61b"]
+atlas = ExtResource("10_ny6xl")
+region = Rect2(1200, 800, 600, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2ov5"]
+atlas = ExtResource("10_ny6xl")
+region = Rect2(0, 1200, 600, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4d67x"]
+atlas = ExtResource("10_ny6xl")
+region = Rect2(600, 1200, 600, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08y6w"]
+atlas = ExtResource("10_ny6xl")
+region = Rect2(1200, 1200, 600, 400)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_yyio0"]
 animations = [{
 "frames": [{
@@ -267,6 +287,26 @@ animations = [{
 }],
 "loop": true,
 "name": &"Stable",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jywib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qg61b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2ov5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4d67x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08y6w")
+}],
+"loop": true,
+"name": &"broken",
 "speed": 5.0
 }]
 
@@ -669,6 +709,7 @@ position = Vector2(0, -3)
 scale = Vector2(0.06, 0.06)
 sprite_frames = SubResource("SpriteFrames_yyio0")
 animation = &"Stable"
+frame_progress = 0.922757
 
 [node name="Area2D" type="Area2D" parent="Electrical/StaticBody2D"]
 collision_layer = 5
