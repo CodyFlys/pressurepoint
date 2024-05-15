@@ -48,7 +48,7 @@ func _process(delta):
 
 func flickerLights():
 	if electrical.powerOn == true:
-		if int(Depth) >= 100 and lightsOn == false:
+		if int(Depth) >= 400 and lightsOn == false:
 			lightsOn = true
 			lightHandler()
 			await get_tree().create_timer(0.12).timeout
