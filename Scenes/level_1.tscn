@@ -737,6 +737,30 @@ collision_mask = 5
 position = Vector2(46, -21)
 shape = SubResource("RectangleShape2D_airqf")
 
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 379.0
+offset_top = 216.0
+offset_right = 431.0
+offset_bottom = 239.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Depth:"
+text_direction = 1
+
+[node name="counter" type="Label" parent="Control/Label"]
+offset_left = 51.0
+offset_right = 103.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.163007, 0.0534301, 1, 1)
+text = "20"
+text_direction = 1
+
 [connection signal="body_entered" from="Navigation/StaticBody2D/Area2D" to="Player" method="navigationEnter"]
 [connection signal="body_exited" from="Navigation/StaticBody2D/Area2D" to="Player" method="navigationExit"]
 [connection signal="body_entered" from="Pressure/StaticBody2D/Area2D" to="Player" method="pressureEnter"]
