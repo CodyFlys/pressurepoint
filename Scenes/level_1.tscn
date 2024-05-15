@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://b84pgl2m4ufpx"]
+[gd_scene load_steps=81 format=3 uid="uid://b84pgl2m4ufpx"]
 
 [ext_resource type="PackedScene" uid="uid://bxscfo2x0d3vj" path="res://Scenes/Player.tscn" id="1_2xctj"]
 [ext_resource type="Script" path="res://Scenes/Game_Controller.gd" id="1_51mmq"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dcs5bst8fv0s" path="res://Assets/sprites/Table.png" id="7_hbem2"]
 [ext_resource type="Texture2D" uid="uid://ci0shvlwvmowc" path="res://Assets/sprites/ComputerSheet.png" id="8_km7a1"]
 [ext_resource type="Texture2D" uid="uid://cvxobvlqe1go7" path="res://Assets/sprites/PressureRegSheet.png" id="9_dl36y"]
+[ext_resource type="Script" path="res://Scenes/Pressure.gd" id="10_e3pbh"]
 [ext_resource type="Texture2D" uid="uid://e51kjk7kqw5j" path="res://Assets/sprites/powerBoxSHeet.png" id="10_ny6xl"]
 [ext_resource type="Texture2D" uid="uid://btgmbtd8q655f" path="res://Assets/sprites/ThermoSheet.png" id="11_7g5ba"]
 [ext_resource type="Script" path="res://Scenes/Oxygen.gd" id="12_0v37t"]
@@ -188,12 +189,60 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_np1m4"]
 size = Vector2(31, 20)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_c70g7"]
+atlas = ExtResource("9_dl36y")
+region = Rect2(0, 640, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urmjj"]
+atlas = ExtResource("9_dl36y")
+region = Rect2(640, 320, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eodwq"]
+atlas = ExtResource("9_dl36y")
+region = Rect2(0, 320, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gssrh"]
+atlas = ExtResource("9_dl36y")
+region = Rect2(640, 0, 640, 320)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_cx223"]
 atlas = ExtResource("9_dl36y")
 region = Rect2(0, 0, 640, 320)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j6ywj"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c70g7")
+}],
+"loop": true,
+"name": &"0_4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urmjj")
+}],
+"loop": true,
+"name": &"1_4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eodwq")
+}],
+"loop": true,
+"name": &"2_4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gssrh")
+}],
+"loop": true,
+"name": &"3_4",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cx223")
@@ -485,6 +534,8 @@ scale = Vector2(11.4365, 17.1677)
 texture = ExtResource("4_e7lfa")
 texture_scale = 0.2
 
+[node name="Depth" type="Timer" parent="ship"]
+
 [node name="Player" parent="." instance=ExtResource("1_2xctj")]
 z_index = 5
 position = Vector2(364, 286)
@@ -578,6 +629,7 @@ shape = SubResource("RectangleShape2D_yepbu")
 
 [node name="Pressure" type="Node2D" parent="."]
 position = Vector2(318, 289.41)
+script = ExtResource("10_e3pbh")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Pressure"]
 collision_layer = 2
