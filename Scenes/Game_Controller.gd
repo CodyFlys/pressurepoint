@@ -1,5 +1,5 @@
 extends Node2D
-@onready var background = $Background
+@onready var background = $Camera2D/Background
 
 @onready var light = $DirectionalLight2D
 @onready var lightLevel = light.energy;
@@ -14,12 +14,21 @@ var depthRaw = 20.00
 var tempDepth
 var current_font_color = Color(0, 0, 255)
 @onready var electrical = $Electrical
-
-
+@onready var beacon = $beacon
+@onready var inside_light = $insideLight
+@onready var audio_stream_player_2d = $AudioStreamPlayer2D
+@onready var bubbles = $Bubbles
+@onready var bubbles_2 = $Bubbles2
+@onready var lightson = $lightson
+@onready var bubbles_audio = $bubblesAudio
+@onready var subAudio = $AudioStreamPlayer2D2
+var audio_playing = false
+var audio_playing_1 = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Depth = float("%.f" % 20)
+	audio_stream_player_2d.play()
 	pass
 
 
@@ -30,8 +39,6 @@ func _process(delta):
 		if light.energy < 0.70:
 			light.energy = light.energy + 0.0001
 			flickerLights()
-		else:
-			pass
 		
 		if background.position.y > -1580:
 			background.position.y -= 50 * delta
@@ -45,11 +52,22 @@ func _process(delta):
 		print("called")
 		lightHandler()
 		lightsOn = false
+		
+	if electrical.powerOn == true:
+		beacon.enabled = true
+		inside_light.visible = true
+		if not audio_playing_1:
+			subAudio.play()
+			audio_playing_1 = true
+	else:
+		beacon.enabled = false
+		inside_light.visible = false
 
 func flickerLights():
 	if electrical.powerOn == true:
-		if int(Depth) >= 400 and lightsOn == false:
+		if int(Depth) >= 200 and lightsOn == false:
 			lightsOn = true
+			lightson.play()
 			lightHandler()
 			await get_tree().create_timer(0.12).timeout
 			lightHandler()
@@ -78,10 +96,15 @@ func lightHandler():
 	outLight2.visible = !outLight2.visible
 
 func depthHandler(delta):
-
 	if player.isNavigating == true:
 		depthRaw += 10 * delta
 		Depth = float("%.f" % depthRaw)
+		
+		if not audio_playing:
+			bubbles.emitting = true
+			bubbles_2.emitting = true
+			bubbles_audio.play()
+			audio_playing = true
 
 		if Depth != tempDepth:
 			tempDepth = Depth
@@ -92,4 +115,6 @@ func depthHandler(delta):
 		else:
 			return
 	elif player.isNavigating == false:
-		pass
+		bubbles.emitting = false
+		bubbles_2.emitting = false
+		bubbles_audio.stop()

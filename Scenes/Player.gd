@@ -25,7 +25,6 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("walkLeft", "walkRight")
 	
-	
 	# Flips sprite based on direct
 	if isNavigating == false and isInteracting == false:
 		if direction > 0:
@@ -109,8 +108,9 @@ func tempExit(_body):
 func elecEnter(_body):
 	#print("E Enter")
 	module = "elec"
-	#if module == "elec":
+	if module == "elec":
 		#print("module Swapped", module)
+		pass
 
 func elecExit(_body):
 	#print("E Exit")
@@ -138,7 +138,7 @@ func handleInteraction(event):
 	elif module == "navigation":
 		if electrical.powerOn == true:
 			isNavigating = true
-			print("Is Navigating")
+			print("Is Navigating, power is on")
 		
 	elif module == "temp":
 		print("Temp")
@@ -147,7 +147,7 @@ func handleInteraction(event):
 		electrical.powerOn = true
 		electrical.health = electrical.healthReset
 		game.flickerLights()
-		print("Elec")
+		print("Electical flipped!")
 
 func _input(event):
 	if module != null:

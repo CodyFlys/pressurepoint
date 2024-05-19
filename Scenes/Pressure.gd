@@ -7,19 +7,16 @@ extends Node2D
 
 var health = 100.00
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if game.Depth != null:
 		var depth = game.Depth
-		pressureDrain(_delta, depth)
-		pass
-	
+		if depth >= 100:
+			pressureDrain(_delta, depth)
 
 func pressureDrain(_delta, depth):
 	var drain = float(depth) / 100000.00
