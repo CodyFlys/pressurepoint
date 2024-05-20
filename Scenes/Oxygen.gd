@@ -10,7 +10,7 @@ extends Node2D
 #@onready var powerOn = powerOn
 var blueValue = 10
 @onready var player = $"../Player"
-var hasOxygen = true
+@onready var hasOxygen = true
 var timeUntilDead = 100;
 var timeWithoutOxygen = 0.00;
 var battery = 2

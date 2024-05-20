@@ -542,7 +542,7 @@ animation = &"Interior"
 position = Vector2(-595.513, 9.524)
 scale = Vector2(3.005, 3.005)
 sprite_frames = SubResource("SpriteFrames_xaqgq")
-animation = &"Normal"
+animation = &"crack_1"
 
 [node name="Leg" type="AnimatedSprite2D" parent="ship/ship"]
 z_index = 1

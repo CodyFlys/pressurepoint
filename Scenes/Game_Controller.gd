@@ -34,6 +34,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	modulesStatus = [pressure.pressureOn, electrical.powerOn]
+	implosionHandler(delta)
 	depthHandler(delta)
 	if player.isNavigating == true:
 		if light.energy < 0.70:
@@ -43,13 +45,11 @@ func _process(delta):
 		if background.position.y > -1580:
 			background.position.y -= 50 * delta
 		elif atBottom == false:
-			print("Bottom Reached")
 			atBottom = true
 		else:
 			pass
 			
 	if electrical.powerOn == false and lightsOn == true:
-		print("called")
 		lightHandler()
 		lightsOn = false
 		
@@ -118,3 +118,42 @@ func depthHandler(delta):
 		bubbles.emitting = false
 		bubbles_2.emitting = false
 		bubbles_audio.stop()
+
+
+
+
+
+
+
+
+
+
+# Sub bullshit
+@onready var pressure = $Pressure
+@onready var oxygen = $Oxygen
+var subHealth = 50
+@onready var modulesStatus = [pressure.pressureOn, electrical.powerOn]
+var dangerDepth = 100
+@onready var window = $ship/ship/window
+
+func implosionHandler(delta):
+	if Depth >= dangerDepth:
+		if subHealth >= 0:
+			var subDrain = 0
+			for status in modulesStatus:
+				if!status:
+					subDrain += 1
+					subHealth -= subDrain * 2 * delta
+			print("subHealth:", subHealth," ", modulesStatus)
+		elif subHealth <= 0:
+			#call death
+			pass
+	if subHealth > 40:
+		window.play("Normal")
+	elif subHealth <= 40 and subHealth > 30:
+		window.play("crack_1")
+	elif subHealth <= 30 and subHealth > 15:
+		window.play("crack_2")
+	elif subHealth <= 15:
+		window.play("crack_3")
+	
