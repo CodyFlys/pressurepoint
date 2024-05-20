@@ -20,6 +20,7 @@ func _process(delta):
 		tempSafe = false
 		counterDisplay.add_theme_color_override("font_color", Color(255, 0, 0))
 	elif temp > 50:
+		counterDisplay.add_theme_color_override("font_color", Color(0, 217, 0))
 		tempSafe = true
 	
 	if game.Depth != null:

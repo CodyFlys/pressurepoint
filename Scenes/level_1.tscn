@@ -908,7 +908,7 @@ offset_left = 141.0
 offset_top = 399.0
 offset_right = 483.0
 offset_bottom = 422.0
-text = "Our Record is 23,783 Depth! Can you beat it?"
+text = "Our Record is 10,768 Depth! Can you beat it?"
 
 [node name="Label2" type="Label" parent="Control"]
 layout_mode = 0
