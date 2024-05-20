@@ -6,7 +6,7 @@ extends Node2D
 @onready var water = $StaticBody2D/CollisionShape2D/AnimatedSprite2D/Water
 @onready var t = create_tween()
 #@onready var oxygenLevel = 100.00
-@onready var machineRunTime = 120
+@onready var machineRunTime = 100
 #@onready var powerOn = powerOn
 var blueValue = 10
 @onready var player = $"../Player"
@@ -47,7 +47,6 @@ func _process(delta):
 			# Increment the count
 			count = count + 1
 			# Print the current count
-			print(count)
 			# Update last_time to the current time
 			last_time = current_time
 			
@@ -82,11 +81,15 @@ func _process(delta):
 				pass
 
 		
-	if not hasOxygen or not powerOn:
+	if not hasOxygen or electrical.powerOn == false:
 		if(timeWithoutOxygen <= 0.006):
 			player.modulate.b += timeWithoutOxygen
 			oxgen_sprite.play("Off")
-
+			print(timeWithoutOxygen)
+		elif(timeWithoutOxygen >= 0.01):
+			death.visible = true
+			player.visible = false
+@onready var death = $"../Control/death"
 func reset():
 	if powerOn:
 		water.visible = true

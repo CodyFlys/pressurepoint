@@ -1,6 +1,6 @@
 extends Node2D
 @onready var background = $Camera2D/Background
-
+@onready var death = $Control/death
 @onready var light = $DirectionalLight2D
 @onready var lightLevel = light.energy;
 @onready var outLight1 = $ship/outsideLight
@@ -26,10 +26,13 @@ var audio_playing = false
 var audio_playing_1 = false
 @onready var anglerspawner = $anglerspawner
 @onready var goldfishspawner = $Goldfishspawner
+@onready var deathRect = $Control/death
+@onready var deathTag = $Control/death/Label
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	death.visible = false
 	Depth = float("%.f" % 20)
 	audio_stream_player_2d.play()
 	pass
@@ -37,6 +40,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if subHealth <= 0:
+		deathRect.visible = true
+		deathTag.text = "Imploded"
+	
 	modulesStatus = [pressure.pressureOn, electrical.powerOn, temperature.tempSafe]
 	implosionHandler(delta)
 	depthHandler(delta)

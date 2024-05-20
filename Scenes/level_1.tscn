@@ -833,9 +833,9 @@ text_direction = 1
 
 [node name="power_label" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 382.0
+offset_left = 379.0
 offset_top = 236.0
-offset_right = 422.0
+offset_right = 433.0
 offset_bottom = 259.0
 text = "Power:"
 
@@ -847,10 +847,10 @@ offset_bottom = 23.0
 
 [node name="tempLabel" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 466.0
-offset_top = 237.0
-offset_right = 510.0
-offset_bottom = 260.0
+offset_left = 471.0
+offset_top = 236.0
+offset_right = 519.0
+offset_bottom = 259.0
 text = "Temp:"
 
 [node name="counter" type="Label" parent="Control/tempLabel"]
@@ -862,10 +862,10 @@ theme_override_colors/font_color = Color(0, 0, 1, 1)
 
 [node name="oxygen" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 459.0
-offset_top = 214.0
-offset_right = 522.0
-offset_bottom = 237.0
+offset_left = 470.0
+offset_top = 215.0
+offset_right = 533.0
+offset_bottom = 238.0
 text = "Oxygen:
 "
 
@@ -874,6 +874,33 @@ layout_mode = 0
 offset_left = 64.0
 offset_right = 104.0
 offset_bottom = 23.0
+
+[node name="death" type="ColorRect" parent="Control"]
+visible = false
+z_index = 10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 121.0
+offset_top = 105.0
+offset_right = 121.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(15.7132, 9.01864)
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Control/death"]
+z_index = 11
+layout_mode = 0
+offset_left = 1.27282
+offset_top = 10.2011
+offset_right = 84.2728
+offset_bottom = 33.2011
+scale = Vector2(0.434086, 0.626391)
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "suffocated"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("20_7ebr6")
@@ -915,11 +942,12 @@ volume_db = -20.0
 pitch_scale = 1.5
 
 [node name="Camera2D" type="Camera2D" parent="."]
+z_index = 12
 position = Vector2(418, 267)
 zoom = Vector2(2.04, 2.04)
 
 [node name="Background" type="Sprite2D" parent="Camera2D"]
-z_index = -3
+z_index = -22
 position = Vector2(29, 1895)
 scale = Vector2(2.4768, 2.10594)
 texture = ExtResource("5_cuvc1")
