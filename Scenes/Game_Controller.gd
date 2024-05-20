@@ -34,7 +34,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	modulesStatus = [pressure.pressureOn, electrical.powerOn]
+	modulesStatus = [pressure.pressureOn, electrical.powerOn, temperature.tempSafe]
 	implosionHandler(delta)
 	depthHandler(delta)
 	if player.isNavigating == true:
@@ -131,8 +131,9 @@ func depthHandler(delta):
 # Sub bullshit
 @onready var pressure = $Pressure
 @onready var oxygen = $Oxygen
+@onready var temperature = $Temperature
 var subHealth = 50
-@onready var modulesStatus = [pressure.pressureOn, electrical.powerOn]
+@onready var modulesStatus = [pressure.pressureOn, electrical.powerOn, temperature.tempSafe]
 var dangerDepth = 100
 @onready var window = $ship/ship/window
 
@@ -144,7 +145,6 @@ func implosionHandler(delta):
 				if!status:
 					subDrain += 1
 					subHealth -= subDrain * 2 * delta
-			print("subHealth:", subHealth," ", modulesStatus)
 		elif subHealth <= 0:
 			#call death
 			pass

@@ -118,7 +118,7 @@ func elecExit(_body):
 		module = null
 	#if module == null:
 		#print("module Swapped", module)
-
+@onready var temperature = $"../Temperature"
 func handleInteraction(event):
 	print('module: ', module)
 	
@@ -141,6 +141,7 @@ func handleInteraction(event):
 			print("Is Navigating, power is on")
 		
 	elif module == "temp":
+		temperature.reset()
 		print("Temp")
 		
 	elif module == "elec":
