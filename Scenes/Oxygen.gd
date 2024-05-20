@@ -16,11 +16,12 @@ var timeWithoutOxygen = 0.00;
 var battery = 2
 var called = false # Works as a switch for the oxygen 50% check (quick fix)
 var powerOn = false
-@onready var oxygenCount = $"../Control/oxygen_label/Label"
+@onready var oxygenCount = $"../Control/oxygen/Label"
 @onready var electrical = $"../Electrical"
 var last_time
 var count = 0
 @onready var oxygenLeft = machineRunTime
+
 
 func _ready():
 	last_time = Time.get_ticks_msec()
