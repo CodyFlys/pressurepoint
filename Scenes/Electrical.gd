@@ -1,13 +1,13 @@
 extends Node2D
 
-@export var powerOn = false
+var powerOn = false
 @onready var game = $".."
 @onready var powerBox = $StaticBody2D/CollisionShape2D/AnimatedSprite2D
 var rng = RandomNumberGenerator.new()
-var degradedMax = 120
+var degradedMax = 100
 #var healthReset = rng.randf_range(40,degradedMax)
-var healthReset = 120;
-var health = 120
+var healthReset = 100;
+var health = 100
 var hasStarted = false;
 var depth = 20
 var lightsDrain = false
@@ -41,6 +41,7 @@ func pressureDrain(_delta, Depth):
 		if health > 0:
 			powerBox.play("Stable")
 			health -= drain
+			powerOn = true
 		if health <= 0:
 			powerBox.play("broken")
 			powerOn = false

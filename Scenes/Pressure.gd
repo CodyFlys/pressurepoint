@@ -4,6 +4,7 @@ extends Node2D
 @onready var player = $"../Player"
 @onready var game = $".."
 @onready var pressure = $StaticBody2D/CollisionShape2D/AnimatedSprite2D
+@onready var pressureOn = true
 
 var health = 100.00
 
@@ -31,5 +32,6 @@ func pressureDrain(_delta, depth):
 		if health <= 25 and health > 0:
 			pressure.play("1_4")
 		if health <= 0:
+			pressureOn = false
 			pressure.play("0_4")
 	pass
