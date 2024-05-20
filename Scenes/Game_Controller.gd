@@ -28,6 +28,7 @@ var audio_playing_1 = false
 @onready var goldfishspawner = $Goldfishspawner
 @onready var deathRect = $Control/death
 @onready var deathTag = $Control/death/Label
+@onready var record = $Control/record
 
 
 # Called when the node enters the scene tree for the first time.
@@ -40,6 +41,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if Depth >= 200:
+		record.visible = false
+	
 	if subHealth <= 0:
 		deathRect.visible = true
 		deathTag.text = "Imploded"
