@@ -30,6 +30,16 @@ var audio_playing_1 = false
 @onready var deathTag = $Control/death/Label
 @onready var record = $Control/record
 
+@onready var label_2 = $Control/Label2
+@onready var label_3 = $Control/Label3
+@onready var label_5 = $Control/Label5
+@onready var label_4 = $Control/Label4
+@onready var label_6 = $Control/Label6
+@onready var audio_stream_player_2d_3 = $AudioStreamPlayer2D3
+
+
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -45,6 +55,7 @@ func _process(delta):
 		record.visible = false
 	
 	if subHealth <= 0:
+		audio_stream_player_2d_3.play()
 		deathRect.visible = true
 		deathTag.text = "Imploded"
 	
@@ -80,6 +91,13 @@ func _process(delta):
 	if int(Depth) >= 200:
 		anglerspawner.emitting = true
 		goldfishspawner.emitting = false
+		
+	if int(Depth) >= 100:
+		label_2.visible = false
+		label_3.visible = false
+		label_4.visible = false
+		label_5.visible = false
+		label_6.visible = false
 
 func flickerLights():
 	if electrical.powerOn == true:
