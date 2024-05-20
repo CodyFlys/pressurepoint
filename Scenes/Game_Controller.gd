@@ -24,6 +24,9 @@ var current_font_color = Color(0, 0, 255)
 @onready var subAudio = $AudioStreamPlayer2D2
 var audio_playing = false
 var audio_playing_1 = false
+@onready var anglerspawner = $anglerspawner
+@onready var goldfishspawner = $Goldfishspawner
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -62,6 +65,10 @@ func _process(delta):
 	else:
 		beacon.enabled = false
 		inside_light.visible = false
+		
+	if int(Depth) >= 200:
+		anglerspawner.emitting = true
+		goldfishspawner.emitting = false
 
 func flickerLights():
 	if electrical.powerOn == true:
